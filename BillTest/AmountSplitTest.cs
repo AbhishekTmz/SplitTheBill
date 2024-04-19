@@ -5,25 +5,25 @@ namespace BillTest
     [TestClass]
 public class AmountSplitTest{
     [TestMethod]
-    public void AmountTest()
+    public void AmountTest500()
     {
-        var Amount = new SpAmount();
-        var splittedAmount = Amount.splittedAmount(500 , 5);
+        var Amount = new AmountSplit();
+        var splittedAmount = Amount.SpAmount(500 , 5);
         Assert.AreEqual(100 , splittedAmount);
     }
     [TestMethod]
     public void ZeroAmount()
     {
-        var Amount = new SpAmount();
-        var splittedAmount = Amount.splittedAmount(0 , 10);
+        var Amount = new AmountSplit();
+        var splittedAmount = Amount.SpAmount(0 , 10);
         Assert.AreEqual(0 , splittedAmount);
     }
       [TestMethod]
     public void ThousandAmount()
     {
-        var Amount = new SpAmount();
-        var splittedAmount = Amount.splittedAmount(1000, 10);
-        Assert.AreEqual(10 , splittedAmount);
+        var Amount = new AmountSplit();
+        var splittedAmount = Amount.SpAmount(1000, 10);
+        Assert.AreEqual(100 , splittedAmount);
     }
 }
 }

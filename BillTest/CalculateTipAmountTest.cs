@@ -6,7 +6,7 @@ namespace BillTest;
 public class CalculateTipAmountTest
 {
     [TestMethod]
-    public void CalculateTipShare()
+    public void CalculateTipShareWhenTipPercenr15()
     {
         // Arrange
        var TipCalc = new CalculateTipAmount();
@@ -16,10 +16,10 @@ public class CalculateTipAmountTest
             {"Dawa", 100},
             {"Priskila", 100}
         };
-        float tipPercentage = 0.15f;
+        float tipPercent = 0.15f;
 
         // Act
-        var result = TipCalculator.CalculateTipAmounts(FinalAmount, tipPercent);
+        var result = CalculateTipAmount.CalculateTipAmounts(totaltip, tipPercent);
 
         // Assert
         Assert.AreEqual(15, result["Tashi"]);
@@ -30,7 +30,7 @@ public class CalculateTipAmountTest
 
 
     [TestMethod]
-    public void CalculateTipWithdifferentPercent()
+    public void CalculateTipWithdifferentPercent12()
     {
         // Arrange
        var TipCalc = new CalculateTipAmount();
@@ -40,10 +40,10 @@ public class CalculateTipAmountTest
             {"Bheda",8000},
             {"Anda", 8000}
         };
-        float tipPercentage = 0.12f;
+        float tipPercent = 0.12f;
 
         // Act
-        var result = TipCalculator.CalculateTipAmounts(FinalAmount, tipPercent);
+        var result = CalculateTipAmount.CalculateTipAmounts(totaltip, tipPercent);
 
         // Assert
        Assert.AreEqual(960, result["Motey"]);
@@ -66,7 +66,7 @@ public class CalculateTipAmountTest
           float tipPercentage = 0f;
         
         // Act
-        var result = TipCalculator.CalculateTipAmounts(FinalAmount, tipPercentage);
+        var result = CalculateTipAmount.CalculateTipAmounts(totaltip, tipPercentage);
 
         // Assert
      Assert.AreEqual(0, result["Motey"]);
